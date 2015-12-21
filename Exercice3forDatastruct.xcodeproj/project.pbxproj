@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11F9F27D1C19C3200023A0C3 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 11F9F27C1C19C3200023A0C3 /* main.c */; };
+		11F9F2861C19C3610023A0C3 /* Runner.c in Sources */ = {isa = PBXBuildFile; fileRef = 11F9F2831C19C3610023A0C3 /* Runner.c */; };
+		11F9F2871C19C3610023A0C3 /* race.c in Sources */ = {isa = PBXBuildFile; fileRef = 11F9F2851C19C3610023A0C3 /* race.c */; };
+		11F9F28A1C19C39A0023A0C3 /* Time.c in Sources */ = {isa = PBXBuildFile; fileRef = 11F9F2881C19C39A0023A0C3 /* Time.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +26,11 @@
 
 /* Begin PBXFileReference section */
 		11F9F2791C19C3200023A0C3 /* Exercice3forDatastruct */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Exercice3forDatastruct; sourceTree = BUILT_PRODUCTS_DIR; };
-		11F9F27C1C19C3200023A0C3 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		11F9F2831C19C3610023A0C3 /* Runner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Runner.c; sourceTree = "<group>"; };
+		11F9F2841C19C3610023A0C3 /* Runner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Runner.h; sourceTree = "<group>"; };
+		11F9F2851C19C3610023A0C3 /* race.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = race.c; sourceTree = "<group>"; };
+		11F9F2881C19C39A0023A0C3 /* Time.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Time.c; sourceTree = "<group>"; };
+		11F9F2891C19C39A0023A0C3 /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +47,11 @@
 		11F9F2701C19C3200023A0C3 = {
 			isa = PBXGroup;
 			children = (
+				11F9F2881C19C39A0023A0C3 /* Time.c */,
+				11F9F2891C19C39A0023A0C3 /* Time.h */,
+				11F9F2831C19C3610023A0C3 /* Runner.c */,
+				11F9F2841C19C3610023A0C3 /* Runner.h */,
+				11F9F2851C19C3610023A0C3 /* race.c */,
 				11F9F27B1C19C3200023A0C3 /* Exercice3forDatastruct */,
 				11F9F27A1C19C3200023A0C3 /* Products */,
 			);
@@ -57,7 +68,6 @@
 		11F9F27B1C19C3200023A0C3 /* Exercice3forDatastruct */ = {
 			isa = PBXGroup;
 			children = (
-				11F9F27C1C19C3200023A0C3 /* main.c */,
 			);
 			path = Exercice3forDatastruct;
 			sourceTree = "<group>";
@@ -118,7 +128,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11F9F27D1C19C3200023A0C3 /* main.c in Sources */,
+				11F9F28A1C19C39A0023A0C3 /* Time.c in Sources */,
+				11F9F2871C19C3610023A0C3 /* race.c in Sources */,
+				11F9F2861C19C3610023A0C3 /* Runner.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +247,7 @@
 				11F9F2821C19C3200023A0C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
