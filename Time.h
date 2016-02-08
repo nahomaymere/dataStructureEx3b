@@ -16,7 +16,7 @@ typedef int Ttime;//the time in minutes
 Ttime read_time(Ttime *mytime, const char *prompt);
 void print_time(const Ttime myTime);
 Ttime find_winner_time(Ttime *timeList,int timeList_size);
-Ttime compare_time(Ttime myTime, Ttime winner);
+Ttime compare_time(const Ttime *myTime, const Ttime *winner);
 void print_time_list(Ttime *time_list,int time_list_size);
 int get_numberof_runners(const char *prompt);
 

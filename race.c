@@ -13,32 +13,11 @@
 
 int main(){
     
-    Trunner runnerA,runnerB;
-    readName(&runnerA, "Enter runner 1 Name: ");
-    readName(&runnerB, "Enter runner 2 Name: ");
-    read_runnerTime(&runnerA,"Enter runner 1 Time: " );
-    read_runnerTime(&runnerB,"Enter runner 2 Time: ");
-    switch (  betterRunner(&runnerA, &runnerB)) {
-       case 0:
-            printf("No actual winner\n");
-            displayRunner(&runnerA);
-            printf("\n");
-            displayRunner(&runnerB);
-            break;
-        case 1:
-            printf("Winner is: ");
-            displayRunner(&runnerA);
-            break;
-        case 2:
-            printf("Winner is: ");
-            displayRunner(&runnerB);
-            break;
-
-    }
+    int i;
+    int num_of_runners = get_numberof_runners("How many runners do you have?");
+    Trunner runner[num_of_runners];
+    read_runnersData(runner,num_of_runners);
+    print_result_list(runner, num_of_runners);
     
-
-  
-    
-
     return 0;
 }

@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-Ttime read_time(Ttime *mytime,const char *prompt){
+Ttime read_time(Ttime *mytime, const char *prompt){
     int hours, minutes;
     char str[10];
     char *token2;
@@ -30,13 +30,14 @@ Ttime read_time(Ttime *mytime,const char *prompt){
         int str_size = sizeof(str) / sizeof(char);
         
         for (int i = 0; i< str_size; i++) {
+            
             if (i > 4 && (int)str[i] > 31 && (int)str[i] < 127) {
                 printf("Incorrect Format\n");
                 token[0] = '\0';
                 allowlooping = y;
                 break;
             }
-            if(str[2] !=  ':'){
+            if(str[2] !=  ' ' && str[2] != ':'){
                 printf("Incorrect Format\n");
                 token[0] = '\0';
                 allowlooping = y;
@@ -53,17 +54,19 @@ Ttime read_time(Ttime *mytime,const char *prompt){
             }
             else
                 allowlooping = n;
+            
         }
+
         // spliting string into two strings
         token[5] = '\0';
         size_token = sizeof(token) / sizeof(char);
-        strOcuur = strchr(token, ':');
+        strOcuur = strchr(token, ' ');
         
         if( strOcuur != NULL ){
             
-            token2 = strtok(token, ":");
+            token2 = strtok(token, " :");
             hours = atoi(token2);
-            token2 = strtok(NULL, " ");
+            token2 = strtok(NULL, " :");
             minutes = atoi(token2);
         }
         if ((hours > 23 || minutes > 59) && allowlooping == n) {
@@ -87,9 +90,9 @@ Ttime find_winner_time(Ttime *timeList, int timeList_size){
     
     return winner_time;
 }
-Ttime compare_time(Ttime myTime, Ttime winner){
+Ttime compare_time(const Ttime *myTime, const Ttime *winner){
     
-    Ttime time_diff = myTime - winner;
+    Ttime time_diff = *myTime - *winner;
     return time_diff;
 }
 void print_time_list(Ttime *time_list, int time_list_size){
@@ -99,7 +102,7 @@ void print_time_list(Ttime *time_list, int time_list_size){
     for (int i = 0; i < time_list_size; i++) {
         printf("%d: ", i+1);
         print_time(time_list[i]);
-        print_time(compare_time(time_list[i], winner));
+        print_time(compare_time(&time_list[i], &winner));
         printf("\n");
     }
 }
@@ -132,7 +135,7 @@ void print_time(const Ttime myTime){
         printf("0%d:%d ", hours, minutes);
  
     else if (minutes < 10)
-         printf("%d:0%d ", hours, minutes);
+         printf("%3d:0%d ", hours, minutes);
     else
-        printf("%d:%d ", hours, minutes);
+        printf("%3d:%d ", hours, minutes);
 }
