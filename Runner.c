@@ -11,17 +11,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void read_runnersData(Trunner *runner, int num_of_runners){
-    int i;
-    for ( i = 0; i < num_of_runners; i++ ){
-        printf("Enter runner %d Name: ",i + 1);
-        readName(&runner[i], "");
-    }
-    for (i = 0; i < num_of_runners; i++) {
-        printf("Enter runner %d Time: ",i + 1);
-        read_runnerTime(&runner[i],"");
-    }
-}
 void readName(Trunner *runner, const char *prompt){
     int size = sizeof(runner->Name)/sizeof(char);
     printf("%s ",prompt);

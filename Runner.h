@@ -17,7 +17,6 @@ typedef struct {
     char Name[30];
     Ttime runnertime;
 }Trunner;
-void read_runnersData( Trunner *runner, int num_of_runners);
 void readName(Trunner *runner, const char *prompt);
 void read_runnerTime(Trunner *runner, const char *prompt);
 void displayRunner(const Trunner *runner, int longestNameLength);

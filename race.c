@@ -16,8 +16,15 @@ int main(){
     int i;
     int num_of_runners = get_numberof_runners("How many runners do you have?");
     Trunner runner[num_of_runners];
-    read_runnersData(runner,num_of_runners);
-    print_result_list(runner, num_of_runners);
+    
+    for ( i = 0; i < num_of_runners; i++ ){
+        printf("Enter runner %d Name: ",i + 1);
+        readName(&runner[i], "");
+    }
+    for (i = 0; i < num_of_runners; i++) {
+        printf("Enter runner %d Time: ",i + 1);
+        read_runnerTime(&runner[i],"");
+    }    print_result_list(runner, num_of_runners);
     
     return 0;
 }
