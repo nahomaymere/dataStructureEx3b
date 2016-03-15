@@ -123,19 +123,28 @@ int get_numberof_runners(const char *prompt){
     }
     return num_of_runners;
 }
-void print_time(const Ttime myTime){
+char* print_time(const Ttime myTime){
     
     int hours, minutes;
+    
+    char time[8];
     hours = myTime / 60;
     minutes = myTime % 60;
-    if (hours<10 && minutes <10) 
-        printf("0%d:0%d ", hours, minutes);
- 
+
+    if (hours<10 && minutes <10)
+        sprintf(time,"0%d:0%d ", hours, minutes);
+    
     else if (hours < 10)
-        printf("0%d:%d ", hours, minutes);
- 
+        sprintf(time,"0%d:%d ", hours, minutes);
+    
     else if (minutes < 10)
-         printf("%3d:0%d ", hours, minutes);
+        sprintf(time,"%3d:0%d ", hours, minutes);
     else
-        printf("%3d:%d ", hours, minutes);
+        sprintf(time,"%3d:%d ", hours, minutes);
+    
+    char *theTime = malloc(sizeof(char) * 8);
+    for (int i = 0; i < 8; i++) {
+        theTime[i] = time[i];
+    }
+    return theTime;
 }

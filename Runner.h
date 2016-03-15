@@ -19,7 +19,7 @@ typedef struct {
 }Trunner;
 void readName(Trunner *runner, const char *prompt);
 void read_runnerTime(Trunner *runner, const char *prompt);
-void displayRunner(const Trunner *runner, int longestNameLength);
+void displayRunner(Trunner runner);
 int betterRunner(const Trunner *runner1, const Trunner *runner2);
 int find_winner_runner(Trunner *runners_list, int runnersList_size);
 void print_winner(Trunner *runners_list, int winner_runner);

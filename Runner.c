@@ -12,10 +12,11 @@
 #include <stdlib.h>
 
 void readName(Trunner *runner, const char *prompt){
-    int size = sizeof(runner->Name)/sizeof(char);
+
     printf("%s ",prompt);
-    fgets(runner->Name, size, stdin);
-    for (int i = 0; i < size; i++) {
+
+    fgets(runner->Name, 30, stdin);
+    for (int i = 0; i < 30 ; i++) {
         if (runner->Name[i] == '\n') {
             runner->Name[i] = '\0';
         }
@@ -25,18 +26,13 @@ void readName(Trunner *runner, const char *prompt){
 void read_runnerTime(Trunner *runner, const char *prompt){
     read_time(&runner->runnertime, prompt);
 }
-void displayRunner(const Trunner *runner, int longestNamelength){
-    int this_nameLength = getNameLength(runner->Name);
-    int amountOfblankspaceNeeded = longestNamelength - this_nameLength;
-    printf("%s",runner->Name);
-   
+void displayRunner(Trunner runner){
+    printf("%-30s%s",runner.Name,print_time(runner.runnertime));
+
+    // i want to leave 30 charachters before printing runner's time however i cant do that because the counting of the 30 charachters is begining with the last charachter of the name which defies the whole purpose of counting the charachters
+
     //printing blank space after runners name
-    for (int i = 0; i <= amountOfblankspaceNeeded ; i++) {
-        printf(" ");
-    }
     //printing runner's time
-    Ttime runTime = runner->runnertime;
-    print_time(runTime);
 }
 int betterRunner(const Trunner *runner1, const Trunner *runner2){
     
@@ -67,42 +63,15 @@ int find_winner_runner(Trunner *runners_list, int runnersList_size){
     return winner;
    
 }
-int getNameLength(const char *name){
-    
-    int nameLength = 0;
-    int counter = 0;
-    while (name[counter] != '\0'){
-        
-        nameLength++;
-        counter++;
-    }
-    
-    return nameLength;
-}
-int find_longest_name(Trunner *runners, int runnersList_size){
-    
-    int longest = 0;
 
-    for (int i = 0;  i < runnersList_size; i++) {
-        if (longest < getNameLength(runners[i].Name)) {
-            longest = getNameLength(runners[i].Name);
-        }
-    }
-    
-    return longest;
-}
 
-void print_winner(Trunner *runners_list, int winner_runner){
-    
-    printf("The Winner is :%s ",runners_list[winner_runner].Name);
-    print_time(runners_list[winner_runner].runnertime);
-    printf("\n");
-}
-void print_result_list(Trunner *runners, int runnersList_size){
+
+
+void print_result_list(Trunner runners[], int runnersList_size){
     
     int winner = find_winner_runner(runners, runnersList_size);
     printf("Winner is : %s ",runners[winner].Name);
-    print_time(runners[winner].runnertime);
+    printf("%s",print_time(runners[winner].runnertime));
     printf("\n\n");
     
     printf("The result list:\n");
@@ -115,10 +84,10 @@ void print_result_list(Trunner *runners, int runnersList_size){
         count = i + 1;
         
         printf("%d: ",count);
-        displayRunner(&runners[i], find_longest_name(runners,runnersList_size));
+        displayRunner(runners[i]);
         printf(" +");
         compared_time = compare_time(&runners[i].runnertime, &runners[winner].runnertime);
-        print_time(compared_time);
+        printf("%s",print_time(compared_time));
         printf("\n");
     }
     
